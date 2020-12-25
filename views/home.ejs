@@ -1,0 +1,37 @@
+<%- include("header") -%>
+
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="">
+    <img src="images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    Prescription Pharma
+  </a>
+  <ul class="nav justify-content-end"">
+  <li class="nav-item">
+    <a class="nav-link" href="#">Sale</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Employee</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Medicine</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="">Logout</a>
+  </li>
+</ul>
+</nav>
+
+
+  <div class="box1">
+      <form class="item" action="/e" method="post">
+        
+        <button class="button btn btn-primary" type="submit" name="list">Employee</button>
+      </form>
+
+      <form class="item" action="/" method="post">
+        
+        <button class="button btn btn-primary" type="submit" name="list">Medicine</button>
+      </form>
+  </div>
+
+<%- include("footer") -%>

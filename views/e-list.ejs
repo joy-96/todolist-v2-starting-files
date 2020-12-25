@@ -1,0 +1,85 @@
+<%- include("header") -%>
+
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="">
+    <img src="images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    Prescription Pharma
+  </a>
+  <ul class="nav justify-content-end"">
+  <li class="nav-item">
+    <a class="nav-link" href="#">Sale</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Employee</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Medicine</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="">Logout</a>
+  </li>
+</ul>
+</nav>
+
+  <div class="box" id="heading">
+    <h1> <%= listTitle %> </h1>
+  </div>
+
+  <div class="box1">
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Address</th>
+          <th scope="col">Sex</th>
+          <th scope="col">Position</th>
+          <th scope="col">Salery</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+
+      <% newListItems.forEach(function(item){ %>
+
+        <form action="/delete" method="post">
+          <div class="item">
+          
+          
+
+          <tbody>
+            <tr>
+              <th scope="row"><%= item.id %></th>
+              <td> <%= item.name %> </td>
+              <td><%= item.address %></td>
+              <td><%= item.sex %></td>
+              <td><%= item.position %></td>
+              <td><%= item.salery %></td>
+              <td><input type="checkbox" name= "checkbox" value="<%=item._id%>" onChange="this.form.submit()"></td>
+            </tr>
+          </tbody>
+        </form>
+      
+        <% }) %>
+
+        </table>
+        </div>
+  <div class="box2">
+      <form class="item" action="/" method="post">
+        <label for="">ID: </label>
+        <input type="text" name="newId" placeholder="ID" autocomplete="off">
+        <label for="">Name: </label>
+        <input type="text" name="newName" placeholder="Full Name" autocomplete="off">
+        <label for="">Address: </label>
+        <input type="text" name="newAddress" placeholder="Address" autocomplete="off">
+        <label for="">Sex: </label>
+        <input type="text" name="newSex" placeholder="Sex" autocomplete="off">
+        <label for="">Position: </label>
+        <input type="text" name="newPosition" placeholder="Position" autocomplete="off">
+        <label for="">Salery: </label>
+        <input type="text" name="newSalery" placeholder="Salery" autocomplete="off">
+        <button class="button btn btn-primary" type="submit" name="list">Add Employee</button>
+      </form>
+  </div>
+
+<%- include("footer") -%>

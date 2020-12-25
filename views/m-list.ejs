@@ -1,0 +1,99 @@
+<%- include("header") -%>
+
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="">
+    <img src="images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    Prescription Pharma
+  </a>
+  <ul class="nav justify-content-end"">
+  <li class="nav-item">
+    <a class="nav-link" href="#">Sale</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Employee</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Medicine</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="">Logout</a>
+  </li>
+</ul>
+</nav>
+
+  <div class="box" id="heading">
+    <h1> <%= listTitle %> </h1>
+  </div>
+
+  <div class="box2">
+    <form class="item" action="/" method="post">
+      <label for="">ID: </label>
+      <input type="text" name="newId" placeholder="ID" autocomplete="off">
+      <label for=""> Name: </label>
+      <input type="text" name="newName" placeholder="Name" autocomplete="off">
+      <label for=""> Group: </label>
+      <input type="text" name="newgroup" placeholder="Group" autocomplete="off">
+      <label for=""> Manufacturer: </label>
+      <input type="text" name="newcompany" placeholder="Manufacturer" autocomplete="off">
+      <label for=""> Details: </label>
+      <input type="text" name="newDetails" placeholder="" autocomplete="off">
+      <label for=""> Price: </label>
+      <input type="Price" name="newPrice" placeholder="00" autocomplete="off">
+      <label for="">    M Date: </label>
+      <input type="text" name="newMdate" placeholder="MM.YYYY" autocomplete="off">
+      <label for=""> E Date: </label>
+      <input type="text" name="newEdate" placeholder="MM.YYYY" autocomplete="off">
+      <label for=""> Units: </label>
+      <input type="text" name="newUnits" placeholder="00" autocomplete="off">
+      <button class="button btn btn-primary" type="submit" name="list">Add Medicine</button>
+    </form>
+</div>
+
+  <div class="box1">
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Group Name</th>
+          <th scope="col">Manufacturer</th>
+          <th scope="col">Description</th>
+          <th scope="col">Price</th>
+          <th scope="col">Manufacture Date</th>
+          <th scope="col">Expire Date</th>
+          <th scope="col">Units</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+
+      <% newListItems.forEach(function(item){ %>
+
+        <form action="/delete" method="post">
+          <div class="item">
+          
+          
+
+          <tbody>
+            <tr>
+              <th scope="row"><%= item.id %></th>
+              <td> <%= item.name %> </td>
+              <td><%= item.group %></td>
+              <td><%= item.company %></td>
+              <td><%= item.details %></td>
+              <td><%= item.price %></td>
+              <td><%= item.mDate %></td>
+              <td><%= item.eDate %></td>
+              <td><%= item.units %></td>
+              <td><input type="checkbox" name= "checkbox" value="<%=item._id%>" onChange="this.form.submit()"></td>
+            </tr>
+          </tbody>
+        </form>
+      
+        <% }) %>
+
+        </table>
+        </div>
+  
+
+<%- include("footer") -%>
